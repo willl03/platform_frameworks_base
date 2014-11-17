@@ -2691,4 +2691,5 @@
 
   <!-- Default first user restrictions -->
   <java-symbol type="array" name="config_defaultFirstUserRestrictions" />
+
 </resources>
