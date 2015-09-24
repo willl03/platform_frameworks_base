@@ -3454,7 +3454,7 @@ public final class Settings {
         
         /**
          * Int value of the battery style 0 is default
-         *
+         *    
          * @hide
          */
         public static final String STATUSBAR_BATTERY_STYLE = "statusbar_battery_style";
@@ -3493,6 +3493,15 @@ public final class Settings {
          */
         public static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR =
                 "notification_light_pulse_default_color";
+
+        /**
+         * Whether we automatically generate notification LED colors or just
+         * use the boring default.
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_COLOR_AUTO =
+                "notification_light_color_auto";
 
         /**
          * How long to flash the notification LED by default
