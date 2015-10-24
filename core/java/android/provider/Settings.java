@@ -3746,7 +3746,7 @@ public final class Settings {
       
         /**
          * Disable dashboard suggestions in settings
-         * @hide
+         * @hide      
          */
         public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
 
@@ -3784,6 +3784,12 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+
+        /**
+         * Whether to wake the screen with the volume keys, the value is boolean.
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
