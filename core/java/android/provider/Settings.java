@@ -3739,7 +3739,7 @@ public final class Settings {
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
-         * Forces formal text input.  1 to replace emoticon key with enter key.
+         * Forces formal text input.  1 to replace emoticon key with enter key.      
          * @hide
          */
         public static final String FORMAL_TEXT_INPUT = "formal_text_input";
@@ -3796,6 +3796,13 @@ public final class Settings {
          * @hide
          */
         public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
+
+        /**
+         * Volume key controls ringtone or media sound stream
+         * @hide
+         */
+        public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM =
+                "volume_keys_control_media_stream";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
