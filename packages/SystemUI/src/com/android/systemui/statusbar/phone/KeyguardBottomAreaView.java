@@ -390,7 +390,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             shouldGrayScale = true;
             contentDescription = mShortcutHelper.getFriendlyNameForUri(Shortcuts.LEFT_SHORTCUT);
             visible |= !mShortcutHelper.isTargetEmpty(Shortcuts.LEFT_SHORTCUT);
-        } else if (canLaunchVoiceAssist()) {
+        } else if (canLaunchVoiceAssist() && VoiceAssist()) {
             drawable = mContext.getDrawable(R.drawable.ic_mic_26dp);
             contentDescription = mContext.getString(R.string.accessibility_voice_assist_button);
         } else {
@@ -406,7 +406,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public boolean isLeftVoiceAssist() {
-        return !isTargetCustom(Shortcuts.LEFT_SHORTCUT) && canLaunchVoiceAssist();
+        return !isTargetCustom(Shortcuts.LEFT_SHORTCUT) && canLaunchVoiceAssist() && VoiceAssist();
     }
 
     private boolean isPhoneVisible() {
@@ -814,6 +814,10 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     public void updateLeftAffordance() {
         updateLeftAffordanceIcon();
         updateLeftPreview();
+    }
+
+    private boolean VoiceAssist() {
+        return getResources().getBoolean(R.bool.config_keyguardShowVoiceAssistAffordance);
     }
 
     private String getIndexHint(LockscreenShortcutsHelper.Shortcuts shortcut) {
