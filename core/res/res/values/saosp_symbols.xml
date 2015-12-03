@@ -73,6 +73,11 @@
   <!-- kill app long press back -->
   <java-symbol type="string" name="app_killed_message" />
 
+  <!-- Unlink notification images -->
+  <java-symbol type="drawable" name="ic_audio_notification_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_alpha" />
+
   <!-- Vendor warning -->
   <java-symbol type="string" name="system_error_vendorprint" />
 
