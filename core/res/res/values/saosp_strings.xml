@@ -23,6 +23,7 @@
     <string name="global_action_voicesearch">Voice Search</string>
     <string name="global_action_torch">Flashlight</string>
     <string name="global_action_current_user">Current</string>
+    <string name="global_action_screen_record">Screen record</string>
     <!-- Button to reboot the phone in reboot menu -->
     <string name="reboot_reboot">Reboot</string>
     <!-- Button to reboot the phone into recovery in reboot menu-->
@@ -35,6 +36,6 @@
     <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
     <string name="reboot_confirm" product="default">Your phone will reboot.</string>
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Rebooting\u2026</string> 
-
+    <string name="reboot_progress">Rebooting\u2026</string>
+   
 </resources>
