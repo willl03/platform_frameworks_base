@@ -3881,6 +3881,12 @@ public final class Settings {
         public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
 
         /**
+         * Remove tile summaries in settings
+         * @hide
+         */
+        public static final String DASHBOARD_TILE_SUMMARY = "dashboard_tile_summary";
+
+        /**
          * Volume rocker wake
          * @hide
          */
