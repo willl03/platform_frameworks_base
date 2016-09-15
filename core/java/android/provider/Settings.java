@@ -3996,6 +3996,12 @@ public final class Settings {
         public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
 
         /**
+         * Disable dashboard conditions in settings
+         * @hide
+         */
+        public static final String ENABLE_CONDITIONS = "enable_conditions";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
