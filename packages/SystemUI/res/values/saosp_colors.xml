@@ -32,4 +32,7 @@
     <!-- carrier label color -->
     <color name="status_bar_carrier_color">#FFFFFFFF</color>
 
+    <!-- QS edit page background color -->
+    <color name="qs_edit_item_decoration_bg">#ff384248</color>
+
 </resources>
