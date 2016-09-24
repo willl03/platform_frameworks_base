@@ -16,6 +16,11 @@
     <string name="global_action_reboot">Перезагрузка</string>
     <!-- label for item that screenshots in phone options dialog -->
     <string name="global_action_screenshot">Скриншот</string>
+    <string name="global_action_search">Поиск</string>
+    <string name="global_action_voicesearch">Голосовой поиск</string>
+    <string name="global_action_torch">Фонарик</string>
+    <string name="global_action_current_user">Текущий</string>
+    <string name="global_action_screen_record">Запись экрана</string>
     <!-- Button to reboot the phone in reboot menu -->
     <string name="reboot_reboot">Перезагрузка</string>
     <!-- Button to reboot the phone into recovery in reboot menu-->
@@ -29,4 +34,5 @@
     <string name="reboot_confirm" product="default">Ваш телефон будет перезагружен.</string>
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
     <string name="reboot_progress">Перезагрузка\u2026</string>
+   
 </resources>

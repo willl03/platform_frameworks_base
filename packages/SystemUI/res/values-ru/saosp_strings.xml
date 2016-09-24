@@ -25,4 +25,16 @@
     <string name="select_application">Выбор приложения</string>
     <string name="lockscreen_choose_action_title">Выбор действия</string>
     <string name="lockscreen_none_target">Нет</string>
+    
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Экран записывается</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Запись экрана</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Остановить</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Показать указатель</string>
+    <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Невозможно записать экран</string>
 </resources>
