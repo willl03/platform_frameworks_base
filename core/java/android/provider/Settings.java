@@ -3669,6 +3669,12 @@ public final class Settings {
         @Deprecated
         public static final String LOCK_SOUND = Global.LOCK_SOUND;
 
+         /**
+         * Whether the notification light will be allowed when in zen mode during downtime
+         * @hide
+         */
+        public static final String ALLOW_LIGHTS = "allow_lights";
+
         /**
          * @deprecated Use {@link android.provider.Settings.Global#UNLOCK_SOUND}
          * instead
@@ -3969,8 +3975,9 @@ public final class Settings {
             STATUS_BAR_AM_PM,
             STATUS_BAR_CLOCK_DATE_DISPLAY,
             STATUS_BAR_CLOCK_DATE_STYLE,
-            STATUS_BAR_CLOCK_DATE_FORMAT,
-            NOTIFICATION_LIGHT_SCREEN_ON
+            STATUS_BAR_CLOCK_DATE_FORMAT,           
+            NOTIFICATION_LIGHT_SCREEN_ON,
+            ALLOW_LIGHTS
         };
 
         /**
