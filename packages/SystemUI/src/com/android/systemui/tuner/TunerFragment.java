@@ -52,7 +52,7 @@ public class TunerFragment extends PreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.systemui_tuner_statusbar_title);
+        getActivity().setTitle(R.string.system_ui_tuner);
 
         MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, true);
     }
