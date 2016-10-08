@@ -37,7 +37,6 @@
         <item>@string/battery_style_meter_horizontal</item>
         <item>@string/battery_style_circle</item>
         <item>@string/battery_style_text</item>
-        <item>@string/battery_style_droid</item>
     </string-array>
 
     <string-array name="values_battery_styles" translatable="false">
@@ -45,7 +44,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-        <item>4</item>
     </string-array>
 
     <!-- Do not translate. Defines the mapping of notification package names

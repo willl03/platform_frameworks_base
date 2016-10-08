@@ -52,7 +52,6 @@ public abstract class AbstractBatteryView extends View implements BatteryControl
     protected final int[] mColors;
     protected final int mCriticalLevel;
     protected int mFrameColor;
-    private int mChargeColor;
     protected final float[] mBoltPoints;
     protected boolean mChargingImage;
     protected int mDarkModeBackgroundColor;
@@ -63,7 +62,6 @@ public abstract class AbstractBatteryView extends View implements BatteryControl
     protected final Paint mBoltPaint;
     protected final Paint mTextPaint;
     protected int mTextSize;
-    protected boolean mChargeColorEnable = true;
     protected int mTextWidth;
 
     protected class BatteryTracker extends BroadcastReceiver {
@@ -163,7 +161,6 @@ public abstract class AbstractBatteryView extends View implements BatteryControl
 
         mCriticalLevel = getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
-        mChargeColor = getResources().getColor(R.color.batterymeter_charge_color);
         mBoltPoints = loadBoltPoints();
         mBoltPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBoltPaint.setColor(getResources().getColor(R.color.batterymeter_bolt_color));
@@ -209,15 +206,6 @@ public abstract class AbstractBatteryView extends View implements BatteryControl
     public void setChargingImage(boolean chargingImage) {
         mChargingImage = chargingImage;
     }
-
-    public void setChargingColor(int chargingColor) {
-        mChargeColor = chargingColor;
-    }
-
-    public void setChargingColorEnable(boolean value) {
-        mChargeColorEnable = value;
-    }
-
     protected boolean isWideDisplay() {
         return mShowPercent && !mPercentInside;
     }
@@ -228,9 +216,6 @@ public abstract class AbstractBatteryView extends View implements BatteryControl
     }
 
     protected int getCurrentColor(int level) {
-        if (mTracker.plugged && mChargeColorEnable) {
-            return mChargeColor;
-        }
         return getColorForLevel(level);
     }
 
