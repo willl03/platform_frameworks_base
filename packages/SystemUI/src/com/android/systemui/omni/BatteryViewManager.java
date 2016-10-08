@@ -44,14 +44,12 @@ public class BatteryViewManager {
     private int mShowPercent;
     private boolean mPercentInside;
     private boolean mChargingImage = true;
-    private int mChargingColor;
     private boolean mExpandedView;
     private List<AbstractBatteryView> mBatteryStyleList = new ArrayList<AbstractBatteryView>();
     private AbstractBatteryView mCurrentBatteryView;
     private BatteryController mBatteryController;
     private BarTransitions mBarTransitions;
     private BatteryViewManagerObserver mBatteryStyleObserver;
-    private boolean mChargingColorEnable = true;
     private int mBatteryEnable = 1;
 
     public interface BatteryViewManagerObserver {
@@ -91,10 +89,6 @@ public class BatteryViewManager {
                 R.layout.battery_percent_view, mContainerView, false);
         mBatteryStyleList.add(view);
 
-        view = (AbstractBatteryView) LayoutInflater.from(mContext).inflate(
-                R.layout.battery_droid_view, mContainerView, false);
-        mBatteryStyleList.add(view);
-
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_STYLE), false,
                 mSettingsObserver, UserHandle.USER_ALL);
@@ -106,12 +100,6 @@ public class BatteryViewManager {
                 mSettingsObserver, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_CHARGING_IMAGE), false,
-                mSettingsObserver, UserHandle.USER_ALL);
-        mContext.getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR), false,
-                mSettingsObserver, UserHandle.USER_ALL);
-        mContext.getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR_ENABLE), false,
                 mSettingsObserver, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.STATUSBAR_BATTERY_ENABLE), false,
@@ -136,7 +124,7 @@ public class BatteryViewManager {
     }
 
     private void switchBatteryStyle(int style, int showPercent, boolean percentInside, boolean chargingImage,
-            int chargingColor, boolean chargingColorEnable, int batteryEnable) {
+            int batteryEnable) {
         if (style >= mBatteryStyleList.size()) {
             return;
         }
@@ -145,8 +133,6 @@ public class BatteryViewManager {
         mShowPercent = showPercent;
         mPercentInside = percentInside;
         mChargingImage = chargingImage;
-        mChargingColor = chargingColor;
-        mChargingColorEnable = chargingColorEnable;
         mBatteryEnable = batteryEnable;
         if (mCurrentBatteryView != null) {
             mContainerView.removeView(mCurrentBatteryView);
@@ -188,8 +174,6 @@ public class BatteryViewManager {
         boolean showPercentReally = mExpandedView ? mShowPercent != 0 : mShowPercent == 1;
         mCurrentBatteryView.setShowPercent(showPercentReally);
         mCurrentBatteryView.setChargingImage(mChargingImage);
-        mCurrentBatteryView.setChargingColor(mChargingColor);
-        mCurrentBatteryView.setChargingColorEnable(mChargingColorEnable);
         mCurrentBatteryView.applyStyle();
     }
 
@@ -202,18 +186,13 @@ public class BatteryViewManager {
                 Settings.System.STATUSBAR_BATTERY_PERCENT_INSIDE, 0, UserHandle.USER_CURRENT) != 0;
         final boolean chargingImage = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_CHARGING_IMAGE, 1, UserHandle.USER_CURRENT) == 1;
-        final int chargingColor = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR, mContext.getResources().getColor(R.color.batterymeter_charge_color),
-                    UserHandle.USER_CURRENT);
-        final boolean chargingColorEnable = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_CHARGING_COLOR_ENABLE, 1, UserHandle.USER_CURRENT) == 1;
         final int batteryEnable = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_ENABLE, 1, UserHandle.USER_CURRENT);
         mHandler.post(new Runnable() {
             @Override
             public void run() {
                 switchBatteryStyle(batteryStyle, showPercent, percentInside, chargingImage,
-                        chargingColor, chargingColorEnable, batteryEnable);
+                        batteryEnable);
             }
         });
     }
