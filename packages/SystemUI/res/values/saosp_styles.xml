@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<!--
+     Copyright (C) 2016 The Pure Nexus Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,10 +14,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
-    <!-- Bounds [left top right bottom] on screen for picture-in-picture (PIP) windows,
-         when the PIP menu is shown with settings. -->
-    <string translatable="false" name="pip_settings_bounds">"778 54 1258 324"</string>
-    
+    <!-- Custom Carrier Label -->
+    <style name="TextAppearance.StatusBar.CarrierLabel" parent="@*android:style/TextAppearance.StatusBar.Icon">
+        <!-- Note: must be dp to fit in status bar -->
+        <item name="android:textSize">@dimen/status_bar_carrier_height</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/status_bar_carrier_color</item>
+    </style>
 </resources>
