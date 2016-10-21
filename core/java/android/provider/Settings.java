@@ -6685,6 +6685,18 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /**
+         * Display style of the status bar battery information
+         * 0: Display the battery an icon in portrait mode
+         * 2: Display the battery as a circle
+         * 4: Hide the battery status information
+         * 5: Display the battery an icon in landscape mode
+         * 6: Display the battery as plain text
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+
+        /**
          * Control whether Night display will automatically activate/deactivate.
          * @hide
          */
@@ -6929,7 +6941,8 @@ public final class Settings {
             QS_TILES,
             STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
             LOCKSCREEN_QUICK_UNLOCK_CONTROL,
-            STATUS_BAR_SHOW_BATTERY_PERCENT
+            STATUS_BAR_SHOW_BATTERY_PERCENT,
+            STATUS_BAR_BATTERY_STYLE
         };
 
         /**
