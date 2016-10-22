@@ -387,8 +387,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
          private void startSettingsLongClickActivity() {
          Intent intent = new Intent(Intent.ACTION_MAIN);
-	 intent.setClassName("com.android.settings",
-            "com.android.settings.Settings$SaospSettingsActivity");
+	 intent.setClassName("com.android.systemui",
+            "com.android.systemui.tuner.TunerActivity");
         mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
