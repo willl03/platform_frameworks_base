@@ -46,9 +46,6 @@
   <java-symbol type="string" name="global_action_torch" />
   <java-symbol type="string" name="global_action_screen_record" />
 
-  <!-- Config.xml entries -->
-  <java-symbol type="bool" name="config_show_cmIMESwitcher"/>
-
   <!-- LED pulse -->
   <java-symbol type="bool" name="config_ledCanPulse" />
 
