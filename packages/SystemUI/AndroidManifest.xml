@@ -249,6 +249,7 @@
                   android:icon="@drawable/tuner"
                   android:theme="@style/TunerSettings"
                   android:label="@string/system_ui_tuner"
+                  android:parentActivityName="com.android.settings.DevelopmentSettings"
                   android:process=":tuner"
                   android:exported="true">
         </activity>
