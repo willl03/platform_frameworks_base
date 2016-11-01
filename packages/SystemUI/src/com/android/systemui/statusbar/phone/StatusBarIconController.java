@@ -578,6 +578,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
                 isInArea(mTintArea, mCurrentBatteryView) ? mDarkIntensity : 0);
         mClock.setTextColor(getTint(mTintArea, mClock, mIconTint));
         mCenterClock.setTextColor(getTint(mTintArea, mCenterClock, mIconTint));
+        mLeftClock.setTextColor(getTint(mTintArea, mLeftClock, mIconTint));
 	mNetworkTraffic.setDarkIntensity(mDarkIntensity);
     }
 
