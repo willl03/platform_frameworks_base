@@ -15,8 +15,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Reboot Dialog -->
-    <string name="global_action_reboot">Reboot</string>
+    <!-- Restart Dialog -->
+    <string name="global_action_reboot">Restart</string>
     <!-- label for item that screenshots in phone options dialog -->
     <string name="global_action_screenshot">Screenshot</string>
     <string name="global_action_search">Search</string>
@@ -24,18 +24,18 @@
     <string name="global_action_torch">Flashlight</string>
     <string name="global_action_current_user">Current</string>
     <string name="global_action_screen_record">Screen record</string>
-    <!-- Button to reboot the phone in reboot menu -->
-    <string name="reboot_reboot">Reboot</string>
-    <!-- Button to reboot the phone into recovery in reboot menu-->
+    <!-- Button to restart the phone in restart menu -->
+    <string name="reboot_reboot">Restart</string>
+    <!-- Button to restart the phone into recovery in restart menu-->
     <string name="reboot_recovery">Recovery</string>
-    <!-- Button to reboot the phone into bootloader in reboot menu -->
+    <!-- Button to restart the phone into bootloader in restart menu -->
     <string name="reboot_bootloader">Bootloader</string>
-    <!-- Button to soft reboot the device in reboot menu -->
-    <string name="reboot_soft">Soft reboot</string>
-    <!-- Reboot Confirmation Dialog. -->
-    <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
-    <string name="reboot_confirm" product="default">Your phone will reboot.</string>
-    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Rebooting\u2026</string>
+    <!-- Button to soft restart the device in restart menu -->
+    <string name="reboot_soft">Soft restart</string>
+    <!-- Restart Confirmation Dialog. -->
+    <string name="reboot_confirm" product="tablet">Your tablet will restart.</string>
+    <string name="reboot_confirm" product="default">Your phone will restart.</string>
+    <!-- Restart Progress Dialog. This is shown if the user chooses to restart the phone. -->
+    <string name="reboot_progress">Restarting\u2026</string>
    
 </resources>
