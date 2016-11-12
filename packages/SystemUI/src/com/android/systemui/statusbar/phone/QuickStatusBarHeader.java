@@ -24,11 +24,9 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.UserManager;
-import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,10 +47,10 @@ import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.NextAlarmController.NextAlarmChangeCallback;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoController.OnUserInfoChangedListener;
+import com.android.systemui.tuner.TunerService;
 
 public class QuickStatusBarHeader extends BaseStatusBarHeader implements
-        NextAlarmChangeCallback, OnClickListener, OnLongClickListener,
-        OnUserInfoChangedListener {
+        NextAlarmChangeCallback, OnClickListener, OnUserInfoChangedListener {
 
     private static final String TAG = "QuickStatusBarHeader";
 
@@ -93,7 +91,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     private View mEdit;
     private boolean mShowFullAlarm;
     private float mDateTimeTranslation;
-    protected Vibrator mVibrator;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -124,7 +121,6 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mSettingsButton = (SettingsButton) findViewById(R.id.settings_button);
         mSettingsContainer = findViewById(R.id.settings_button_container);
         mSettingsButton.setOnClickListener(this);
-        mSettingsButton.setOnLongClickListener(this);
 
         mAlarmStatusCollapsed = findViewById(R.id.alarm_status_collapsed);
         mAlarmStatus = (TextView) findViewById(R.id.alarm_status);
@@ -133,20 +129,12 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mMultiUserSwitch = (MultiUserSwitch) findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = (ImageView) mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
 
-        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-
         // RenderThread is doing more harm than good when touching the header (to expand quick
         // settings), so disable it for this view
         ((RippleDrawable) mSettingsButton.getBackground()).setForceSoftware(true);
         ((RippleDrawable) mExpandIndicator.getBackground()).setForceSoftware(true);
 
         updateResources();
-    }
-
-    public void vibrateheader(int duration) {
-        if (mVibrator != null) {
-            if (mVibrator.hasVibrator()) { mVibrator.vibrate(duration); }
-        }
     }
 
     @Override
@@ -279,6 +267,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         updateDateTimePosition();
         mEmergencyOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly
                 ? View.VISIBLE : View.INVISIBLE);
+        mSettingsContainer.findViewById(R.id.tuner_icon).setVisibility(
+                TunerService.isTunerEnabled(mContext) ? View.VISIBLE : View.INVISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(mExpanded && mMultiUserSwitch.hasMultipleUsers() && !isDemo
                 ? View.VISIBLE : View.INVISIBLE);
@@ -333,7 +323,24 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
             MetricsLogger.action(mContext,
                     mExpanded ? MetricsProto.MetricsEvent.ACTION_QS_EXPANDED_SETTINGS_LAUNCH
                             : MetricsProto.MetricsEvent.ACTION_QS_COLLAPSED_SETTINGS_LAUNCH);
-            startSettingsActivity();
+            if (mSettingsButton.isTunerClick()) {
+                mHost.startRunnableDismissingKeyguard(() -> post(() -> {
+                    if (TunerService.isTunerEnabled(mContext)) {
+                        TunerService.showResetRequest(mContext, () -> {
+                            // Relaunch settings so that the tuner disappears.
+                            startSettingsActivity();
+                        });
+                    } else {
+                        Toast.makeText(getContext(), R.string.tuner_toast,
+                                Toast.LENGTH_LONG).show();
+                        TunerService.setTunerEnabled(mContext, true);
+                    }
+                    startSettingsActivity();
+
+                }));
+            } else {
+                startSettingsActivity();
+            }
         } else if (v == mAlarmStatus && mNextAlarm != null) {
             PendingIntent showIntent = mNextAlarm.getShowIntent();
             if (showIntent != null && showIntent.isActivity()) {
@@ -342,26 +349,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         }
     }
 
-
-    @Override
-    public boolean onLongClick(View v) {
-        if (v == mSettingsButton) {
-            startSettingsLongClickActivity();
-        }
-        vibrateheader(20);
-        return false;
-    }
-
     private void startSettingsActivity() {
         mActivityStarter.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS),
                 true /* dismissShade */);
-    }
-
-         private void startSettingsLongClickActivity() {
-         Intent intent = new Intent(Intent.ACTION_MAIN);
-	 intent.setClassName("com.android.systemui",
-            "com.android.systemui.tuner.TunerActivity");
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
     @Override
