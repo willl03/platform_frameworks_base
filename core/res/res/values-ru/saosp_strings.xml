@@ -34,10 +34,4 @@
     <string name="reboot_confirm" product="default">Ваш телефон будет перезагружен.</string>
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
     <string name="reboot_progress">Перезагрузка\u2026</string>
-   
-    <!-- Battery styles -->
-    <string name="battery_style_text">Только текст</string>
-    <string name="battery_style_default">По умолчанию</string>
-    <string name="battery_style_meter_horizontal">Горизонтальный значок</string>
-    <string name="battery_style_circle">Круг</string>
 </resources>
