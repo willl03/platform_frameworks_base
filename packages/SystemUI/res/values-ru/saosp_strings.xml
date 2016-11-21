@@ -13,7 +13,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Quick Settings tiles -->   
-    <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="quick_settings_screenshot_label">Снимок экрана</string>
+    <string name="quick_settings_region_screenshot_label">Снимок области</string>
     <string name="quick_settings_sync_label">Синхронизация</string>
     <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
     <string name="accessibility_quick_settings_sync_on">Синхронизация</string>
