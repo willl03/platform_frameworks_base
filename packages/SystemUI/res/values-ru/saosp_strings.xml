@@ -64,4 +64,15 @@
     <string name="heads_up_snooze_message_one_minute">Всплывающие уведомления отключены на 1 минуту.</string>
     <string name="heads_up_snooze_message">Всплывающие уведомления отключены на <xliff:g id="number">%d</xliff:g> минут.</string>
 
+    <!-- NavBar Tuner -->
+    <string name="menu_ime_always_show">Меню / Переключ. клавиатуры (всегда)</string>
+    <string name="search">Поиск</string>
+
+    <!-- Typing virtual buttons -->
+    <string name="accessibility_dpad_left">Курсор влево</string>
+    <string name="accessibility_dpad_right">Курсор вправо</string>
+
+    <!-- Screenshot action -->
+    <string name="screenshot_abort_title">Снимок экрана не выполнен</string>
+    <string name="screenshot_abort_text">Операция прервана</string>
 </resources>
