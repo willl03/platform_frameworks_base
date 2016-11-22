@@ -140,8 +140,8 @@ public class KeyguardStatusBarView extends RelativeLayout
         mSystemIconsContainer.setLayoutParams(lp);
 
         lp = (MarginLayoutParams) mBatteryLevel.getLayoutParams();
-        lp.setMarginStart(
-                getResources().getDimensionPixelSize(R.dimen.header_battery_margin_keyguard));
+        //lp.setMarginStart(
+        //        getResources().getDimensionPixelSize(R.dimen.header_battery_margin_keyguard));
         mBatteryLevel.setLayoutParams(lp);
         mBatteryLevel.setPaddingRelative(mBatteryLevel.getPaddingStart(),
                 mBatteryLevel.getPaddingTop(),
