@@ -38,7 +38,7 @@ import android.widget.TextView;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settingslib.BatteryInfo;
 import com.android.settingslib.graph.UsageView;
-import com.android.systemui.BatteryMeterDrawable;
+import com.android.systemui.BatteryMeterDrawableQs;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.statusbar.policy.BatteryController;
@@ -116,8 +116,8 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
         state.icon = new Icon() {
             @Override
             public Drawable getDrawable(Context context) {
-                BatteryMeterDrawable drawable =
-                        new BatteryMeterDrawable(context, new Handler(Looper.getMainLooper()),
+                BatteryMeterDrawableQs drawable =
+                        new BatteryMeterDrawableQs(context, new Handler(Looper.getMainLooper()),
                         context.getColor(R.color.batterymeter_frame_color));
                 drawable.onBatteryLevelChanged(mLevel, mPluggedIn, mCharging);
                 drawable.onPowerSaveChanged(mPowerSave);
@@ -163,7 +163,7 @@ public class BatteryTile extends QSTile<QSTile.State> implements BatteryControll
 
     private final class BatteryDetail implements DetailAdapter, OnClickListener,
             OnAttachStateChangeListener {
-        private final BatteryMeterDrawable mDrawable = new BatteryMeterDrawable(mHost.getContext(),
+        private final BatteryMeterDrawableQs mDrawable = new BatteryMeterDrawableQs(mHost.getContext(),
                 new Handler(), mHost.getContext().getColor(R.color.batterymeter_frame_color));
         private View mCurrentView;
 
