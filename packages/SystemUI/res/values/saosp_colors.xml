@@ -42,5 +42,9 @@
 
     <!-- QS edit page background color -->
     <color name="qs_edit_item_decoration_bg">#ff384248</color>
+     
+    <!-- QS settings and edit button color -->
+    <color name="qs_edit_button_color">#FFFFFF</color>
+    <color name="qs_settings_button_color">#ffffffff</color>
 
 </resources>
