@@ -69,6 +69,7 @@ public class BatteryMeterDrawable extends Drawable implements
     public static final int BATTERY_STYLE_HIDDEN    = 4;
     public static final int BATTERY_STYLE_LANDSCAPE = 5;
     public static final int BATTERY_STYLE_TEXT      = 6;
+    public static final int BATTERY_STYLE_FULL_CIRCLE  = 7;
 
     private final int[] mColors;
     private final int mIntrinsicWidth;
@@ -497,6 +498,8 @@ public class BatteryMeterDrawable extends Drawable implements
                 return R.drawable.ic_battery_landscape;
             case BATTERY_STYLE_CIRCLE:
                 return R.drawable.ic_battery_circle;
+            case BATTERY_STYLE_FULL_CIRCLE:
+                return R.drawable.ic_battery_full_circle;
             case BATTERY_STYLE_PORTRAIT:
                 return R.drawable.ic_battery_portrait;
             default:
@@ -510,6 +513,8 @@ public class BatteryMeterDrawable extends Drawable implements
                 return R.style.BatteryMeterViewDrawable_Landscape;
             case BATTERY_STYLE_CIRCLE:
                 return R.style.BatteryMeterViewDrawable_Circle;
+            case BATTERY_STYLE_FULL_CIRCLE:
+                return R.style.BatteryMeterViewDrawable_CircleFull;
             case BATTERY_STYLE_PORTRAIT:
                 return R.style.BatteryMeterViewDrawable_Portrait;
             default:
@@ -532,6 +537,7 @@ public class BatteryMeterDrawable extends Drawable implements
         if (mWidth <= 0 || mHeight <= 0) return;
 
         final float widthDiv2 = mWidth / 2f;
+
         // text size is width / 2 - 2dp for wiggle room
         final float textSize = widthDiv2 - mContext.getResources().getDisplayMetrics().density * 2;
         mTextAndBoltPaint.setTextSize(textSize);
