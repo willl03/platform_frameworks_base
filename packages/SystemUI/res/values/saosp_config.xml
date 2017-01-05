@@ -31,4 +31,7 @@
     <integer name="recents_animate_fab_enter_delay">275</integer>
     <integer name="recents_animate_fab_exit_duration">125</integer>
 
+    <!-- Nav bar button swapped ordering/layout -->
+    <string name="config_navBarLayoutSwapped" translatable="false">menu_ime,recent;home;back,space</string>
+
 </resources>

@@ -650,6 +650,22 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
+    final private ContentObserver mSwapNavKeyObserver = new ContentObserver(mHandler) {
+        @Override
+        public void onChange(boolean selfChange) {
+            boolean wasUsing = mUseSwapKey;
+            mUseSwapKey = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.SWAP_NAVIGATION_KEYS, 0,
+                    UserHandle.USER_CURRENT) != 0;
+            Log.d(TAG, "navbar is " + (mUseSwapKey ? "swapped" : "regular"));
+            if (wasUsing != mUseSwapKey) {
+                if (mNavigationBarView != null) {
+                    prepareNavigationBarView();
+                }
+            }
+        }
+    };
+
     private int mInteractingWindows;
     private boolean mAutohideSuspended;
     private int mStatusBarMode;
@@ -922,6 +938,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mScreenPinningRequest = new ScreenPinningRequest(mContext);
         mFalsingManager = FalsingManager.getInstance(mContext);
+
+        mSwapNavKeyObserver.onChange(true); // set up
     }
 
     protected void createIconController() {
@@ -1247,6 +1265,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         // Private API call to make the shadows look better for Recents
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
+
+        // listen for SWAP_NAVIGATION_KEYS setting (per-user)
+        resetSwapNavKeyObserver();
 
         return mStatusBarView;
     }
@@ -1652,6 +1673,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     private void prepareNavigationBarView() {
+        mNavigationBarView.setSwapKeys(mUseSwapKey);
         mNavigationBarView.reorient();
 
         ButtonDispatcher recentsButton = mNavigationBarView.getRecentsButton();
@@ -4199,6 +4221,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void userSwitched(int newUserId) {
         super.userSwitched(newUserId);
         if (MULTIUSER_DEBUG) mNotificationPanelDebugText.setText("USER " + newUserId);
+        resetSwapNavKeyObserver();
         animateCollapsePanels();
         updatePublicMode();
         updateNotifications();
@@ -4225,6 +4248,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.USER_SETUP_COMPLETE), true,
                 mUserSetupObserver, mCurrentUserId);
+    }
+
+    private void resetSwapNavKeyObserver() {
+        mContext.getContentResolver().unregisterContentObserver(mSwapNavKeyObserver);
+        mSwapNavKeyObserver.onChange(false);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SWAP_NAVIGATION_KEYS), true,
+                mSwapNavKeyObserver, mCurrentUserId);
     }
 
     /**
