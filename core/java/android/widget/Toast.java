@@ -32,7 +32,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
@@ -413,8 +412,8 @@ public class Toast {
                 }
 
                 ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
-                if ((Settings.System.getIntForUser(context.getContentResolver(),
-                        Settings.System.TOAST_ICON, 0, UserHandle.USER_CURRENT) == 1)) {
+                if ((Settings.System.getInt(context.getContentResolver(),
+                        Settings.System.TOAST_ICON, 0) == 1)) {
                     if (appIcon != null) {
                         ActivityManager am =
                                 (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
