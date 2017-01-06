@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -53,6 +54,8 @@ public class KeyguardStatusBarView extends RelativeLayout
 
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT =
             Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT;
+    private static final String STATUS_BAR_BATTERY_STYLE =
+            Settings.Secure.STATUS_BAR_BATTERY_STYLE;
 
     private boolean mBatteryCharging;
     private boolean mKeyguardUserSwitcherShowing;
@@ -75,6 +78,10 @@ public class KeyguardStatusBarView extends RelativeLayout
 
     private boolean mShowBatteryText;
     private boolean mForceBatteryText;
+    private boolean mBatteryText;
+
+    private int currentLevel;
+    private boolean isPlugged;
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
@@ -269,8 +276,9 @@ public class KeyguardStatusBarView extends RelativeLayout
 
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
-        String percentage = NumberFormat.getPercentInstance().format((double) level / 100.0);
-        mBatteryLevel.setText(percentage);
+        currentLevel = level;
+        isPlugged = pluggedIn;
+        updateChargingSymbol(currentLevel, isPlugged);
         boolean changed = mBatteryCharging != charging;
         mBatteryCharging = charging;
         if (changed) {
@@ -383,5 +391,15 @@ public class KeyguardStatusBarView extends RelativeLayout
                     Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0) == 6 ? true : false;
             updateVisibilities();
         }
+        updateChargingSymbol(currentLevel, isPlugged);
+    }
+
+    private void updateChargingSymbol(int level, boolean pluggedIn) {
+           mBatteryText = Settings.Secure.getInt(getContext().getContentResolver(),
+                    Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0) == 6;
+        if (pluggedIn && mBatteryText)
+            mBatteryLevel.setText("+" + NumberFormat.getPercentInstance().format((double) level / 100.0));
+        else
+            mBatteryLevel.setText(NumberFormat.getPercentInstance().format((double) level / 100.0));
     }
 }

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014-2016 The CyanogenMod Project
+ * Copyright (C) 2016 Xperia Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +18,7 @@
 package com.android.systemui;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.icu.text.NumberFormat;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -38,7 +40,11 @@ public class BatteryLevelTextView extends TextView implements
 
     private boolean mRequestedVisibility;
     private boolean mForceBatteryText;
+    private boolean mBatteryText;
     private boolean mBatteryCharging;
+
+    private int currentLevel;
+    private boolean isPlugged;
 
     public BatteryLevelTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -46,7 +52,9 @@ public class BatteryLevelTextView extends TextView implements
 
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
-        setText(NumberFormat.getPercentInstance().format((double) level / 100.0));
+        currentLevel = level;
+        isPlugged = pluggedIn;
+        updateChargingSymbol(currentLevel, isPlugged);
         boolean changed = mBatteryCharging != charging;
         mBatteryCharging = charging;
         if (changed) {
@@ -105,5 +113,15 @@ public class BatteryLevelTextView extends TextView implements
             default:
                 break;
         }
+        updateChargingSymbol(currentLevel, isPlugged);
+    }
+    
+    private void updateChargingSymbol(int level, boolean pluggedIn) {
+           mBatteryText = Settings.Secure.getInt(getContext().getContentResolver(),
+                    Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0) == 6;
+        if (pluggedIn && mBatteryText)
+            setText("+" + NumberFormat.getPercentInstance().format((double) level / 100.0));
+        else
+            setText(NumberFormat.getPercentInstance().format((double) level / 100.0));
     }
 }
