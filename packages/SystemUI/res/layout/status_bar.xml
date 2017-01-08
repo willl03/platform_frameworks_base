@@ -76,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.StatusBar.Clock"
                 android:layout_marginStart="@dimen/header_battery_margin_keyguard"
                 android:textColor="@color/status_bar_battery_level_text_color"
                 android:textSize="@dimen/battery_level_text_size" />
