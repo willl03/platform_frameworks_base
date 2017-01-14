@@ -20,6 +20,7 @@ package com.android.systemui.qs.tiles;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.provider.Settings;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Handler;
@@ -69,21 +70,8 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
     }
 
     @Override
-    public void handleLongClick() {
-        mHost.collapsePanels();
-        /* wait for the panel to close */
-        try {
-             Thread.sleep(2000);
-        } catch (InterruptedException ie) {
-             // Do nothing
-        }
-        takeScreenshot();
-    }
-
-    @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
+        return new Intent(Settings.ACTION_DISPLAY_SETTINGS);
     }
 
     @Override
