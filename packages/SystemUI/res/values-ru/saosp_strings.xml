@@ -16,7 +16,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Quick Settings tiles -->   
     <string name="quick_settings_screenshot_label">Снимок экрана</string>
-    <string name="quick_settings_region_screenshot_label">Снимок области</string>
     <string name="quick_settings_sync_label">Синхронизация</string>
     <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
     <string name="accessibility_quick_settings_sync_on">Синхронизация</string>
@@ -74,8 +73,12 @@
     <!-- Typing virtual buttons -->
     <string name="accessibility_dpad_left">Курсор влево</string>
     <string name="accessibility_dpad_right">Курсор вправо</string>
-
-    <!-- Screenshot action -->
-    <string name="screenshot_abort_title">Снимок экрана не выполнен</string>
-    <string name="screenshot_abort_text">Операция прервана</string>
+ 
+    <!-- Screenshot Crop & Share -->
+    <string name="action_delete_success">Удалено</string>
+    <string name="action_delete_fault">Удалить неудалось</string>
+    <string name="action_save_success">Сохранено</string>
+    <string name="action_save_fault">Сохранить неудалось</string>
+    <string name="action_edit">Редактировать</string>
+    <string name="action_ok">ОК</string>
 </resources>
