@@ -48,4 +48,9 @@
 
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Версия образа vendor не соответствует системе. Прошейте образ последней версии vendor для вашего устройства.</string>
+     
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_restartUI">перезагружать системные бары</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_restartUI">Перезагружать SystemUIService чтобы системные бары мголи загружать ресурсы тем</string> 
 </resources>
