@@ -53,4 +53,8 @@
     <string name="permlab_restartUI">перезагружать системные бары</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_restartUI">Перезагружать SystemUIService чтобы системные бары мголи загружать ресурсы тем</string> 
+     
+    <!-- Single handed mode -->
+    <string name="singlehandmode_click_hint_message">Коснитесь снаружи экрана для выхода из режима одной руки</string>
+    <string name="singlehandmode_slide_hint_message">Проведите пальцем по панели навигации для переключения между обычным режимом и режимом одной руки</string>  
 </resources>

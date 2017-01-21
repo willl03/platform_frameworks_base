@@ -81,4 +81,35 @@
     <string name="action_save_fault">Сохранить неудалось</string>
     <string name="action_edit">Редактировать</string>
     <string name="action_ok">ОК</string>
+     
+    <!-- QuickSettings: NFC tile [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_nfc_label">NFC</string>
+    <!-- QuickSettings: NFC (off) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_nfc_off">NFC отключен</string>
+    <!-- QuickSettings: NFC (on) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_nfc_on">NFC включен</string> 
+     
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">Фонарик включён</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Нажмите, чтобы отключить</string>
+
+    <!-- notification controls -->
+    <string name="tuner_notification_control">Расширенные настройки уведомлений</string>
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- data saver icon switch -->
+    <string name="status_bar_datasaver">Экономия трафика</string>
+
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_battery_saving">Местоположение: по координатам сети.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Местоположение: по спутникам GPS.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Местоположение: по всем источникам.</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Выбран режим по координатам сети.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Выбран режим по спутникам GPS.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Выбран режим по всем источникам.</string>
+    <string name="quick_settings_location_detail_title">Режим поиска</string>
+    <string name="quick_settings_location_battery_saving_label">По координатам сети</string>
+    <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
+    <string name="quick_settings_location_off_label">Местоположение</string>
 </resources>
