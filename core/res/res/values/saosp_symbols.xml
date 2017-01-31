@@ -99,4 +99,7 @@
   <!-- Automatic brightness enhancements -->
   <java-symbol type="integer" name="config_autoBrightnessBrighteningLightFastDebounce"/>
 
+  <!-- Power menu dialog -->
+  <java-symbol type="style" name="Animation.PowermenuDialog" />
+
 </resources>
