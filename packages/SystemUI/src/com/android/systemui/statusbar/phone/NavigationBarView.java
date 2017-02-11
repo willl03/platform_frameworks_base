@@ -236,7 +236,10 @@ public class NavigationBarView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ONE_HANDED_MODE_UI, 0, UserHandle.USER_CURRENT) == 1) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         if (mGestureHelper.onTouchEvent(event)) {
             return true;
         }
@@ -248,7 +251,10 @@ public class NavigationBarView extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ONE_HANDED_MODE_UI, 0, UserHandle.USER_CURRENT) == 1) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         return mGestureHelper.onInterceptTouchEvent(event);
     }
 
