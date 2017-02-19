@@ -1066,6 +1066,8 @@ public class PackageInstaller {
             }
         }
 
+        /** {@hide} */
+        @SystemApi
         public void setInstallFlagsQuick() {
             installFlags |= PackageManager.INSTALL_QUICK;
         }

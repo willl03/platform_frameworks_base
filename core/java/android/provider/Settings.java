@@ -8911,7 +8911,11 @@ public final class Settings {
          * @see com.android.server.AlarmManagerService.Constants
          */
         public static final String ALARM_MANAGER_CONSTANTS = "alarm_manager_constants";
-
+ 
+        /** 
+         * Single handed mode
+         * @hide
+         */
         public static final String SINGLE_HAND_MODE = "single_hand_mode";
 
         /**
