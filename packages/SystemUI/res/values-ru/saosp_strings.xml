@@ -111,5 +111,19 @@
     <string name="quick_settings_location_battery_saving_label">По координатам сети</string>
     <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
     <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
-    <string name="quick_settings_location_off_label">Местоположение</string>
+    <string name="quick_settings_location_off_custom_label">Местоположение</string>
+     
+    <!-- Brightness quick setting tile -->
+    <string name="quick_settings_brightness_label">Яркость</string>
+    <!-- Content description of the brightness tile in quick settings (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_brightness">Яркость.</string>
+
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Снимок экрана удален</string>
+
+    <!-- Expanded desktop quick setting tile -->
+    <string name="quick_settings_expanded_desktop_label">Расширенный экран</string>
+    <string name="quick_settings_expanded_desktop">Расширенный</string>
+    <string name="quick_settings_expanded_desktop_off">Обычный</string>
+
 </resources>
