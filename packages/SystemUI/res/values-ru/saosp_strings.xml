@@ -126,4 +126,6 @@
     <string name="quick_settings_expanded_desktop">Расширенный</string>
     <string name="quick_settings_expanded_desktop_off">Обычный</string>
 
+    <!-- SystemUI tuner dashboard summary -->
+    <string name="tuner_dashboard_summary">Экспериментальные функции</string>
 </resources>

@@ -47,7 +47,7 @@
     <string name="permdesc_modifyOverlays">Приложение сможет вносить изменения в тему наложений с использованием OverlayManagerService</string>
 
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Версия образа vendor не соответствует системе. Прошейте образ последней версии vendor для вашего устройства.</string>
+    <string name="system_error_vendorprint">Версия образа vendor не соответствует системе. Прошейте образ vendor версии <xliff:g id="string">%s</xliff:g></string>
      
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_restartUI">перезагружать системные бары</string>
