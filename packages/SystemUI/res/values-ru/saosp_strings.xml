@@ -128,4 +128,11 @@
 
     <!-- SystemUI tuner dashboard summary -->
     <string name="tuner_dashboard_summary">Экспериментальные функции</string>
+     
+    <string name="omnijaws_service_error">Ошибка</string>
+    <string name="omnijaws_service_unkown">Нет данных о погоде</string>
+    <string name="omnijaws_detail_header">Погода</string>
+    <string name="omnijaws_label_default">Погода</string>
+    <string name="omnijaws_current_text">Сейчас</string> 
+    <string name="omnijaws_package_not_available">OmniJaws не доступна</string>
 </resources>
