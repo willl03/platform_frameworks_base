@@ -996,7 +996,7 @@ public final class BatteryService extends SystemService {
 
             // Low battery pulse
             mLedPulseEnabled = Settings.System.getInt(resolver,
-                        Settings.System.BATTERY_LIGHT_PULSE, 0) != 0;
+                        Settings.System.BATTERY_LIGHT_PULSE, 1) != 0;
 
             // Light colors
             mBatteryLowARGB = Settings.System.getInt(resolver,
