@@ -4113,12 +4113,6 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_HIDEARROW = "network_traffic_hidearrow";
 
         /**
-         * Whether to hide Settings drawer
-         * @hide
-         */
-        public static final String SHOW_SETTINGS_DRAWER = "show_settings_drawer";
-
-        /**
          * Define if screenshot crop & share is active
          * @hide
          */
