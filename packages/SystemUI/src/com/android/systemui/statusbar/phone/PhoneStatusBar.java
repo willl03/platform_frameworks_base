@@ -506,9 +506,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_COLUMNS_LANDSCAPE),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD),
-                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.STATUS_BAR_SHOW_TICKER),
                   false, this, UserHandle.USER_ALL);  
@@ -569,10 +566,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     UserHandle.USER_CURRENT) == 1;
             mShowCarrierLabel = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
-
-            if (mNotificationPanel != null) {
-                mNotificationPanel.updateSettings(); 
-            } 
             mClockLocation = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
            

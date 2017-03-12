@@ -908,4 +908,3 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 }
 
-
