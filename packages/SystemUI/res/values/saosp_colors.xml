@@ -76,4 +76,7 @@
     <!-- Keyguard affordance circle background -->
     <color name="keyguard_affordance_circle_background">@android:color/white</color>
 
+    <!-- Status bar battery colors -->
+    <color name="batterymeter_frame_color_darkintensity">@color/dark_mode_icon_color_dual_tone_background</color>
+
 </resources>
