@@ -56,7 +56,6 @@
      
     <!-- Single handed mode -->
     <string name="singlehandmode_click_hint_message">Коснитесь снаружи экрана для выхода из режима одной руки</string>
-    <string name="singlehandmode_slide_hint_message">Проведите пальцем по панели навигации для переключения между обычным режимом и режимом одной руки</string>  
 
     <!-- SOFTAP framework  -->
     <string name="tethered_notification_no_device_message">Нет подключенного устройства</string>
