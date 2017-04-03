@@ -111,4 +111,7 @@
 
   <java-symbol type="bool" name="config_fingerprintRemoveClientOnCancel" />
 
+  <!-- Assist manager -->
+  <java-symbol type="string" name="no_assist_found" />
+
 </resources>
