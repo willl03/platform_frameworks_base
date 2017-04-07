@@ -3975,13 +3975,6 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
 
-       /**
-        * USB Data automatic unlock
-        *
-        * @hide
-        */
-       public static final String USB_DATA_AUTO_UNLOCK = "usb_data_auto_unlock";
-
         /**
          * Whether the user has enabled headsup (Default 1)
          * HeadsUp is enabled by default within its Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED
