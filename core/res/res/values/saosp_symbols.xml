@@ -109,4 +109,6 @@
   <java-symbol type="bool" name="config_protocol_errors_perm_failure" />
   <java-symbol type="bool" name="config_softap_extention" />
 
+  <java-symbol type="bool" name="config_fingerprintRemoveClientOnCancel" />
+
 </resources>
