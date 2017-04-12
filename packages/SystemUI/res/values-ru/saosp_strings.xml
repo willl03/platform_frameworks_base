@@ -135,4 +135,10 @@
     <string name="omnijaws_label_default">Погода</string>
     <string name="omnijaws_current_text">Сейчас</string> 
     <string name="omnijaws_package_not_available">OmniJaws не доступна</string>
+     
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_ring">Звонок</string>
+    <string name="quick_settings_sound_vibrate">Вибросигнал</string>
+    <string name="quick_settings_sound_dnd">Не беспокоить</string> 
 </resources>
