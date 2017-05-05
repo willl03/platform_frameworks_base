@@ -4115,18 +4115,6 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_HIDEARROW = "network_traffic_hidearrow";
 
         /**
-         * Define if screenshot crop & share is active
-         * @hide
-         */
-        public static final String SCREENSHOT_CROP_AND_SHARE = "screenshot_crop_and_share";
-
-        /**
-         * Define the crop behavior of screenshot crop & share
-         * @hide
-         */
-        public static final String SCREENSHOT_CROP_BEHAVIOR = "screenshot_crop_behavior";
-
-        /**
          * Whether to enable the pixel navbar animation
          * @hide
          */

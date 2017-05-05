@@ -38,14 +38,6 @@
     </style>
     <style name="BatteryMeterViewDrawable.CircleFull"/>
 
-    <!-- Screenshot Crop & Share -->
-    <style name="CropDialogAnimations">
-        <item name="android:windowEnterAnimation">@anim/crop_in</item>
-        <item name="android:windowExitAnimation">@anim/crop_out</item>
-    </style>
-
-    <style name="ScreenshotEditorStyle" parent="@android:style/Theme.Material" >
-    </style>
 
     <style name="TextAppearance.StatusBar.Expanded.Weather">
         <item name="android:textSize">12sp</item>

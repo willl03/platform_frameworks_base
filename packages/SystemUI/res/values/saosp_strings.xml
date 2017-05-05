@@ -101,14 +101,6 @@
     <string name="battery_circle_full" translatable="false">M 12 2 C 17.5228474983 2 22 6.47715250169 22 12 C 22 17.5228474983 17.5228474983 22 12 22 C 6.47715250169 22 2 17.5228474983 2 12 C 2 6.47715250169 6.47715250169 2 12 2 Z</string>
     <string name="battery_circle_empty" translatable="false">M 12 12 C 12 12 12 12 12 12 C 12 12 12 12 12 12 C 12 12 12 12 12 12 C 12 12 12 12 12 12 Z</string>
 
-    <!-- Screenshot Crop & Share -->
-    <string name="action_delete_success">Deleted</string>
-    <string name="action_delete_fault">Deleting was unsuccessful</string>
-    <string name="action_save_success">Saved</string>
-    <string name="action_save_fault">Saving was unsuccessful</string>
-    <string name="action_edit">Edit</string>
-    <string name="action_ok">OK</string>
-
     <!-- Notification which notifies user flashlight is enabled -->
     <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
     <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
