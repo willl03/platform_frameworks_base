@@ -23,6 +23,7 @@
 
     <!-- Quick Settings tiles -->   
     <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
     <string name="quick_settings_sync_label">Sync</string>
     <string name="accessibility_quick_settings_sync_off">Sync off</string>
     <string name="accessibility_quick_settings_sync_on">Sync on</string>
@@ -80,6 +81,10 @@
     <!-- Typing virtual buttons -->
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
+
+    <!-- Screenshot action -->
+    <string name="screenshot_abort_title">No screenshot taken</string>
+    <string name="screenshot_abort_text">Operation aborted</string>
 
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_hspap">HSPA+</string>
