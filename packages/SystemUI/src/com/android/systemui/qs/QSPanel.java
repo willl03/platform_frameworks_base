@@ -138,6 +138,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
         }
     }
 
+    public void updateSettings() {
+        if (mFooter != null) {
+            mFooter.updateSettings();
+        }
+    }
+
     @Override
     protected void onDetachedFromWindow() {
         TunerService.get(mContext).removeTunable(this);
