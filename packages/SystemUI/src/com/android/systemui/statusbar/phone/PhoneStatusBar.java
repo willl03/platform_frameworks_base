@@ -202,6 +202,7 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.KeyguardUserSwitcher;
 import com.android.systemui.statusbar.policy.LocationControllerImpl;
 import com.android.systemui.statusbar.policy.NetworkController;
+import com.android.systemui.statusbar.policy.NetworkTraffic;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.OnHeadsUpChangedListener;
@@ -416,6 +417,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private TextView mCarrierLabel;
     boolean mExpandedVisible;
 
+    private NetworkTraffic mTraffic;
+
     private int mNavigationBarWindowState = WINDOW_STATE_SHOWING;
 
     private int mStatusBarHeaderHeight;
@@ -575,9 +578,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mShowCarrierLabel = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
             mClockLocation = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);   
-       }
-
+                    Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT); 
+            mTraffic = (NetworkTraffic) mStatusBarView.findViewById(R.id.networkTraffic);
+            if (mTraffic != null) {
+                mTraffic.setSecurityController(mSecurityController);
+            }  
+        }
     }
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
