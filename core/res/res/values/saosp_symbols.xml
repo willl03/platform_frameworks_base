@@ -114,4 +114,5 @@
   <!-- Assist manager -->
   <java-symbol type="string" name="no_assist_found" />
 
+  <java-symbol type="bool" name="config_needsFingerprintAxisInversion" />
 </resources>
